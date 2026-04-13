@@ -5,28 +5,27 @@ on: [push]
 jobs:
   Explorando-GitHub-Actions:
     runs-on: ubuntu-latest
-
     steps:
       - name: Mensaje 1
-        run: echo 'El flujo de trabajo ha sido ejecutado en el evento: ${{ github.event_name }}'
+        run: echo "El flujo de trabajo ha sido ejecutado en el evento ${{ github.event_name }}"
 
       - name: Mensaje 2
-        run: echo 'El trabajo se esta ejecutando en el servidor ${{ runner.os }} hospedado en GitHub'
+        run: echo "El trabajo se esta ejecutando en el servidor ${{ runner.os }} hospedado en GitHub"
 
       - name: Mensaje 3
-        run: echo 'El nombre de la rama es ${{ github.ref }} y tu repositorio es: ${{ github.repository }}.'
+        run: echo "El nombre de la rama es ${{ github.ref }} y tu repositorio es ${{ github.repository }}."
 
       - name: Verifica el codigo del repositorio
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Mensaje 4
-        run: echo 'El repositorio: ${{ github.repository }} ha sido clonado al runner.'
+        run: echo "El repositorio ${{ github.repository }} ha sido clonado al runner."
 
       - name: Mensaje 5
-        run: echo 'El flujo de trabajo esta listo para verificar el codigo en el runner.'
+        run: echo "El flujo de trabajo esta listo para verificar el codigo en el runner."
 
       - name: Listar archivos en el repositorio
         run: ls ${{ github.workspace }}
 
       - name: Estado del trabajo
-        run: echo 'El estado del trabajo es: ${{ job.status }}.'
+        run: echo "El estado del trabajo es ${{ job.status }}."
